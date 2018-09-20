@@ -1,11 +1,11 @@
-#+TITLE: Recipe Bounty - Get that taste in your mouth.
+#+TITLE: Recipe Bounty - Prove that good taste!
 #+AUTHOR: Benjamin Zaporzan
 #+DATE: 2018-09-20
 #+EMAIL: benzaporzan@gmail.com
 #+LANGUAGE: en
 #+OPTIONS: H:2 num:t toc:t \n:nil ::t |:t ^:t f:t tex:t
 
-* A example ethereum dApp project employing district0x technologies
+A example ethereum dApp project employing district0x technologies.
 
 * Prerequisites
   - make
