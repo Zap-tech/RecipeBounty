@@ -1,1 +1,3 @@
-{:main rbounty.dev-ui}
+^{:watch-dirs ["dev_ui" "src/ui"]}
+{:main rbounty.dev-ui
+ :closure-defines {rbounty.ui.core/DEV true}}
