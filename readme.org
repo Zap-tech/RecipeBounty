@@ -1,0 +1,32 @@
+#+TITLE: Recipe Bounty - Get that taste in your mouth.
+#+AUTHOR: Benjamin Zaporzan
+#+DATE: 2018-09-20
+#+EMAIL: benzaporzan@gmail.com
+#+LANGUAGE: en
+#+OPTIONS: H:2 num:t toc:t \n:nil ::t |:t ^:t f:t tex:t
+
+* A example ethereum dApp project employing district0x technologies
+
+* Prerequisites
+  - make
+  - node
+  - clj
+
+* Development
+  #+BEGIN_SRC sh
+
+  make dev
+
+  #+END_SRC
+
+  While in the clojure repl:
+
+  #+BEGIN_SRC clojure
+
+  (start!)
+
+  #+END_SRC
+
+* Testing
+
+  /incomplete/

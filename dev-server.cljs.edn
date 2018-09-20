@@ -1,0 +1,2 @@
+{:main rbounty.dev-server
+ :target :nodejs}
