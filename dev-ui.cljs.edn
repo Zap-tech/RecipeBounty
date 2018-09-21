@@ -1,3 +1,4 @@
-^{:watch-dirs ["dev_ui" "src/ui"]}
+^{:watch-dirs ["dev_ui" "test_ui" "src/ui"]
+  :extra-main-files {:testing {:main rbounty.test-runner}}}
 {:main rbounty.dev-ui
  :closure-defines {rbounty.ui.core/DEV true}}

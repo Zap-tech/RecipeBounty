@@ -1,7 +1,8 @@
 {:deps {
         bidi {:mvn/version "2.1.4"}
-        com.bhauman/figwheel-main {:mvn/version "0.1.9"}
+        com.bhauman/figwheel-main {:mvn/version "0.1.9-SNAPSHOT"}
         com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
+        com.taoensso/timbre {:mvn/version "4.10.0"}
         funcool/cuerdas {:mvn/version "2.0.5"}
         markdown-clj {:mvn/version "1.0.2"}
         mount {:mvn/version "0.1.13"}
@@ -15,14 +16,22 @@
 
  :aliases {;; Main Development Environment
            :dev {:main-opts ["-m" "rebel-readline.main"]
-                 :extra-paths ["dev" "dev_ui" "dev_server"]}
+                 :extra-paths ["dev"
+                               "dev_ui" "dev_server"
+                               "test_ui" "test_server"
+                               "dev_resources"]}
 
            ;; Build and Watch only the UI
            :fig-dev-ui {:main-opts ["-m" "figwheel.main" "-b" "dev-ui" "-r"]
-                        :extra-paths ["dev_ui"]}
+                        :extra-paths ["dev_ui" "test_ui" "dev_resources"]}
 
            
            ;; Build and Watch only the Server
            :fig-dev-server {:main-opts ["-m" "figwheel.main" "-b" "dev-server" "-r"]
-                            :extra-paths ["dev_server"]}}
+                            :extra-paths ["dev_server" "dev_resources"]}
+
+           :test-server {:main-opts ["-m" "figwheel.main" "-co" "dev-server.cljs.edn"
+                                     "-m" "rbounty.test-runner"]
+                         :extra-paths ["dev_server" "test_server" "dev_resources"]}}
+
  :paths ["src/ui" "src/server" "target" "resources"]}
