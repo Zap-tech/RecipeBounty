@@ -15,6 +15,7 @@ A example ethereum dApp project employing district0x technologies.
   - clj
 
 * Development
+
   #+BEGIN_SRC sh
 
   make dev
@@ -29,6 +30,14 @@ A example ethereum dApp project employing district0x technologies.
 
   #+END_SRC
 
+  Open the browser to http://localhost:9500
+
 * Testing
 
-  /incomplete/
+** UI
+   Browser UI tests run along-side the main development server, and
+   can be accessed at http://localhost:9500/test-runner.html when the
+   dev-ui build is active.
+
+** Server
+   Run Server Tests with ~make test~
