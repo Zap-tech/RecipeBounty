@@ -10,12 +10,16 @@
         org.clojure/clojurescript {:mvn/version "1.10.339"}
 
         ;; district0x components
-        district0x/district-ui-reagent-render {:mvn/version "1.0.1"}}
+        district0x/district-ui-reagent-render {:mvn/version "1.0.1"
+                                               :exclusions [cljsjs/react-with-addons]}}
 
  :aliases {;; Extra Deps for UI
            :deps-ui {:extra-deps
-                     {re-frame {:mvn/version "0.10.6" :exclusions "cljsjs/react"}
-                      reagent {:mvn/version "0.8.1"}}}
+                     {re-frame {:mvn/version "0.10.6"
+                                :exclusions [cljsjs/react]}
+                      reagent {:mvn/version "0.8.1"
+                               :exclusions [cljsjs/react]}
+                      cljsjs/react {:mvn/version "16.4.1-0"}}}
 
            ;; Main Development Environment
            :dev {:main-opts ["-m" "rebel-readline.main"]

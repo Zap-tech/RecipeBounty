@@ -1,5 +1,5 @@
 .PHONY: dev dev-ui dev-server
-.PHONY: build-server build-ui build
+.PHONY: build-server build-ui build-dist build
 .PHONY: test clean help
 
 
@@ -12,6 +12,7 @@ help:
 	@echo "  build        :: Make Production Build for Server and UI"
 	@echo "  build-ui     :: Make Production Build for UI only"
 	@echo "  build-server :: Make Production Build for Server only"
+	@echo "  build-dist   :: Prepare ./dist folder for Production Build"
 	@echo ""
 	@echo "  clean        :: Clean out previous build artifacts for all builds"
 	@echo ""
@@ -40,9 +41,12 @@ build-ui:
 	clj -A:build-prod-ui -R:deps-ui
 
 
-build: build-server build-ui
+build-dist:
 	cp -R ./resources/* ./dist/
 	sed -i "s/dev-ui-main.js/build-prod-ui-main.js/g" ./dist/public/index.html
+
+
+build: clean build-server build-ui build-dist
 
 
 clean:
