@@ -1,0 +1,5 @@
+{:main rbounty.server.core
+ :closure-defines {rbounty.server.core/DEV false}
+ :output-to "./dist/rbounty_server.js"
+ :optimizations :simple
+ :target :nodejs}

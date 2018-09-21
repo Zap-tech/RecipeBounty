@@ -8,13 +8,16 @@
         mount {:mvn/version "0.1.13"}
         org.clojure/clojure {:mvn/version "1.9.0"}
         org.clojure/clojurescript {:mvn/version "1.10.339"}
-        re-frame {:mvn/version "0.10.6"}
-        reagent {:mvn/version "0.8.1"}
 
         ;; district0x components
         district0x/district-ui-reagent-render {:mvn/version "1.0.1"}}
 
- :aliases {;; Main Development Environment
+ :aliases {;; Extra Deps for UI
+           :deps-ui {:extra-deps
+                     {re-frame {:mvn/version "0.10.6" :exclusions "cljsjs/react"}
+                      reagent {:mvn/version "0.8.1"}}}
+
+           ;; Main Development Environment
            :dev {:main-opts ["-m" "rebel-readline.main"]
                  :extra-paths ["dev"
                                "dev_ui" "dev_server"
@@ -30,8 +33,15 @@
            :fig-dev-server {:main-opts ["-m" "figwheel.main" "-b" "dev-server" "-r"]
                             :extra-paths ["dev_server" "dev_resources"]}
 
+           ;; Production Build of the UI
+           :build-prod-ui {:main-opts ["-m" "figwheel.main" "-bo" "prod-ui"]}
+
+           ;; Production Build of the Server
+           :build-prod-server {:main-opts ["-m" "figwheel.main" "-bo" "prod-server"]}
+
+           ;; Test Runner script for Server Build
            :test-server {:main-opts ["-m" "figwheel.main" "-co" "dev-server.cljs.edn"
                                      "-m" "rbounty.test-runner"]
                          :extra-paths ["dev_server" "test_server" "dev_resources"]}}
 
- :paths ["src/ui" "src/server" "target" "resources"]}
+ :paths ["src/ui" "src/server" "src/shared" "target" "resources"]}

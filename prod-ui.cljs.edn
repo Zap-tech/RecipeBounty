@@ -1,0 +1,4 @@
+{:main rbounty.ui.core
+ :closure-defines {rbounty.ui.core/DEV false}
+ :optimizations :advanced
+ :output-to "./dist/public/cljs-out/build-prod-ui-main.js"}
