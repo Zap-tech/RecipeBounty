@@ -5,6 +5,8 @@
 #+LANGUAGE: en
 #+OPTIONS: H:2 num:t toc:t \n:nil ::t |:t ^:t f:t tex:t
 
+[[https://travis-ci.org/Zap-tech/RecipeBounty][https://travis-ci.org/Zap-tech/RecipeBounty.svg?branch=master]]
+
 A example ethereum dApp project employing district0x technologies.
 
 * Prerequisites
