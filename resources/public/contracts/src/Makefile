@@ -2,8 +2,8 @@
 
 .PHONY: build init clean
 
-SRC_DIR := ./
-SRC_ABS := $(shell cd $SRC_DIR && pwd)
+SRC_DIR := .
+SRC_ABS := $(shell pwd)/$(SRC_DIR)
 BUILD_DIR := ../build
 
 SOURCES := $(shell find $(SRC_DIR) -name "*.sol")
@@ -20,12 +20,12 @@ init:
 
 
 %.bin : %.sol
-	solc --overwrite --optimize --bin =$(SRC_ABS) $< > $@
+	solc --overwrite --optimize --bin --allow-paths $(SRC_ABS) $< > $@
 	cp $@ $(BUILD_DIR)/$(notdir $@)
 
 
 %.abi : %.sol
-	solc --overwrite --optimize --abi =$(SRC_ABS) $< > $@
+	solc --overwrite --optimize --abi --allow-paths $(SRC_ABS) $< > $@
 	cp $@ $(BUILD_DIR)/$(notdir $@)
 
 
