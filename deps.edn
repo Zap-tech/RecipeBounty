@@ -23,19 +23,19 @@
 
            ;; Main Development Environment
            :dev {:main-opts ["-m" "rebel-readline.main"]
-                 :extra-paths ["dev"
-                               "dev_ui" "dev_server"
-                               "test_ui" "test_server"
-                               "dev_resources"]}
+                 :extra-paths ["dev/clj"
+                               "dev/ui" "dev/server" "dev/shared"
+                               "test/ui" "test/server" "test/shared"
+                               "dev/resources"]}
 
            ;; Build and Watch only the UI
            :fig-dev-ui {:main-opts ["-m" "figwheel.main" "-b" "dev-ui" "-r"]
-                        :extra-paths ["dev_ui" "test_ui" "dev_resources"]}
+                        :extra-paths ["dev/ui" "test/ui" "dev/shared" "dev/resources"]}
 
            
            ;; Build and Watch only the Server
            :fig-dev-server {:main-opts ["-m" "figwheel.main" "-b" "dev-server" "-r"]
-                            :extra-paths ["dev_server" "dev_resources"]}
+                            :extra-paths ["dev/server" "dev/shared" "dev/resources"]}
 
            ;; Production Build of the UI
            :build-prod-ui {:main-opts ["-m" "figwheel.main" "-bo" "prod-ui"]}
@@ -46,6 +46,6 @@
            ;; Test Runner script for Server Build
            :test-server {:main-opts ["-m" "figwheel.main" "-co" "dev-server.cljs.edn"
                                      "-m" "rbounty.test-runner"]
-                         :extra-paths ["dev_server" "test_server" "dev_resources"]}}
+                         :extra-paths ["dev/server" "test/server" "test/shared" "dev/resources"]}}
 
  :paths ["src/ui" "src/server" "src/shared" "target" "resources"]}

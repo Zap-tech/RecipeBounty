@@ -1,4 +1,6 @@
-^{:watch-dirs ["dev_server" "test_server" "src/server" "src/shared"]}
+^{:watch-dirs ["dev/server" "dev/shared"
+               "test/server" "test/shared"
+               "src/server" "src/shared"]}
 {:main rbounty.dev-server
  :closure-defines {rbounty.server.core/DEV true}
  :target :nodejs}
