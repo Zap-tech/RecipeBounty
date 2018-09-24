@@ -1,3 +1,4 @@
+# Clojure and Clojurescript
 /target
 /classes
 /checkouts
@@ -11,8 +12,15 @@ pom.xml.asc
 .hg/
 /resources/public/js/compiled/*
 /bin
-/dist
 .rebel_readline_history
 /.cpcache
+
+# Node Environment
 /node_modules
-# yarn.lock # keep commented for now.
+
+# Solidity Contract Extensions
+*.bin
+*.abi
+
+# Misc
+/dist
