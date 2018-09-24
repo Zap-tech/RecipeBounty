@@ -1,6 +1,8 @@
 ^{:watch-dirs ["dev/ui" "dev/shared"
                "test/ui" "test/shared"
                "src/ui" "src/shared"]
+  :npm {:bundles {"target/webpack/bundles/ui_bundle.js"
+                  "./src/js/index_ui.js"}}
   :extra-main-files {:testing {:main rbounty.test-runner}}}
 {:main rbounty.dev-ui
  :closure-defines {rbounty.ui.core/DEV true}}

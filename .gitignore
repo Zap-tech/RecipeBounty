@@ -14,3 +14,5 @@ pom.xml.asc
 /dist
 .rebel_readline_history
 /.cpcache
+/node_modules
+# yarn.lock # keep commented for now.

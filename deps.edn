@@ -18,8 +18,8 @@
                      {re-frame {:mvn/version "0.10.6"
                                 :exclusions [cljsjs/react]}
                       reagent {:mvn/version "0.8.1"
-                               :exclusions [cljsjs/react]}
-                      cljsjs/react {:mvn/version "16.4.1-0"}}}
+                               :exclusions [cljsjs/react]}}}
+                      ;;cljsjs/react {:mvn/version "16.4.1-0"}}}
 
            ;; Main Development Environment
            :dev {:main-opts ["-m" "rebel-readline.main"]

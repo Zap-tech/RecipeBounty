@@ -1,0 +1,14 @@
+{
+  "name": "RecipeBounty",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Zap-tech/RecipeBounty.git",
+  "author": "Benjamin Zaporzan <ben@district0x.io>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1"
+  }
+}
