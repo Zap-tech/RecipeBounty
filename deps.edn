@@ -1,5 +1,17 @@
-{:deps {
-        bidi {:mvn/version "2.1.4"}
+;; clj CLI configuration file
+;;
+;; Notes:
+;;
+;; - Additional Dependencies are managed by yarn within the top-level package.json file
+;;
+;;   - Add new npm dependencies with `yarn add <package-name>`, update with `make webpack`
+;;
+;; - Browser-based Dependencies are handled by webpack
+;;
+;;   - entry-point is in src/js/index_ui.js for exposing modules to
+;;     js/Window object. This is bundled and used by figwheel (through :foreign-libs).
+
+{:deps {bidi {:mvn/version "2.1.4"}
         com.bhauman/figwheel-main {:mvn/version "0.1.9-SNAPSHOT"}
         com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
         com.taoensso/timbre {:mvn/version "4.10.0"}
@@ -19,7 +31,6 @@
                                 :exclusions [cljsjs/react]}
                       reagent {:mvn/version "0.8.1"
                                :exclusions [cljsjs/react]}}}
-                      ;;cljsjs/react {:mvn/version "16.4.1-0"}}}
 
            ;; Main Development Environment
            :dev {:main-opts ["-m" "rebel-readline.main"]

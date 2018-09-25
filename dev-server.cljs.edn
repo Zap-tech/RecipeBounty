@@ -1,3 +1,5 @@
+;; Figwheel 'dev-server' Build Configuration File
+
 ^{:watch-dirs ["dev/server" "dev/shared"
                "test/server" "test/shared"
                "src/server" "src/shared"]}

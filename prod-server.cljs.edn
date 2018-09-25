@@ -1,3 +1,4 @@
+;; Figwheel 'prod-server' Build Configuration File
 {:main rbounty.server.core
  :closure-defines {rbounty.server.core/DEV false}
  :output-to "./dist/rbounty_server.js"

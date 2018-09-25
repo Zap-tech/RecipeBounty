@@ -1,3 +1,13 @@
+;; Figwheel 'dev-ui' Build Configuration File
+;;
+;; Notes:
+;;
+;; - webpack is used to pull in foreign libs for the browser
+;;   
+;;   - Add new npm libs with `yarn add <package-name>`, update with `make webpack`
+;;
+;; - An automatic browser test-runner runs under http://localhost:9500/test-runner.html
+
 ^{:watch-dirs ["dev/ui" "dev/shared"
                "test/ui" "test/shared"
                "src/ui" "src/shared"]

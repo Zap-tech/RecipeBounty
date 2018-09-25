@@ -5,6 +5,7 @@
 # - node (Javascript Desktop Virtual Machine)
 # - yarn (NodeJS Package Manager)
 # - clj (Clojure CLI Tool)
+# - solc (Solidity Contract Compiler)
 
 .PHONY: init
 .PHONY: dev dev-ui dev-server
@@ -67,8 +68,8 @@ build-contracts:
 
 
 build-dist:
-	cp -R ./resources/* ./dist/
-	sed -i "s/dev-ui-main.js/build-prod-ui-main.js/g" ./dist/public/index.html
+	cp -R ./resources ./dist/
+	sed -i "s/dev-ui-main.js/build-prod-ui-main.js/g" ./dist/resources/public/index.html
 	cp -R ./node_modules ./dist/
 
 

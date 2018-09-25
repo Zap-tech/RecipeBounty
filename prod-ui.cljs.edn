@@ -1,3 +1,4 @@
+;; Figwheel 'prod-ui' Build Configuration File
 ^{:npm {:bundles {"target/webpack/bundles/ui_bundle.js"
                   "src/js/index_ui.js"}}}
 {:main rbounty.ui.core
