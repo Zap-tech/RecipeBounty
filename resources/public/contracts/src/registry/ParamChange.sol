@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-import "registry/RegistryEntry.sol";
+import "./RegistryEntry.sol";
 import "db/EternalDb.sol";
 
 /**
@@ -84,27 +84,27 @@ contract ParamChange is RegistryEntry {
 
   /**
    * @dev Returns true when parameter key is in a whitelisted set and the parameter
-   * value is within the allowed set of values.
+   * _value is within the allowed set of values.
    */
-  function isChangeAllowed(bytes32 record, uint value) public constant returns (bool) {
+  function isChangeAllowed(bytes32 _record, uint _value) public constant returns (bool) {
 
-      if(record == registry.challengePeriodDurationKey() || record == registry.commitPeriodDurationKey() ||
-         record == registry.revealPeriodDurationKey() || record == registry.depositKey()) {
-        if(value > 0) {
+      if(_record == registry.challengePeriodDurationKey() || _record == registry.commitPeriodDurationKey() ||
+         _record == registry.revealPeriodDurationKey() || _record == registry.depositKey()) {
+        if(_value > 0) {
           return true;
         }
       }
 
-      if(record == registry.challengeDispensationKey() || record == registry.voteQuorumKey() ||
-         record == registry.maxTotalSupplyKey()) {
-        if (value >= 0 && value <= 100) {
+      if(_record == registry.challengeDispensationKey() || _record == registry.voteQuorumKey() ||
+         _record == registry.maxTotalSupplyKey()) {
+        if (_value >= 0 && _value <= 100) {
           return true;
         }
       }
 
       // see MemeAuction.sol
-      if(record == registry.maxAuctionDurationKey()) {
-        if(value > 1 minutes) {
+      if(_record == registry.maxAuctionDurationKey()) {
+        if(_value > 1 minutes) {
           return true;
         }
       }

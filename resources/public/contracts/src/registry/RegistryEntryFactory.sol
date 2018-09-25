@@ -15,7 +15,7 @@ contract RegistryEntryFactory is ApproveAndCallFallBack {
   MiniMeToken public registryToken;
   bytes32 public constant depositKey = sha3("deposit");
 
-  function RegistryEntryFactory(Registry _registry, MiniMeToken _registryToken) {
+  constructor(Registry _registry, MiniMeToken _registryToken) public {
     registry = _registry;
     registryToken = _registryToken;
   }
@@ -55,6 +55,6 @@ contract RegistryEntryFactory is ApproveAndCallFallBack {
     bytes _data)
   public
   {
-    require(this.call(_data), "RegistryEntryFactory: couldn't call data");
+    require(address(this).call(_data), "RegistryEntryFactory: couldn't call data");
   }
 }

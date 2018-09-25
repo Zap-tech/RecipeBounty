@@ -72,7 +72,7 @@ contract Registry is DSAuth {
   external
   auth
   {
-    db.setBooleanValue(sha3("isFactory", _factory), _isFactory);
+    db.setBooleanValue(sha3(abi.encodePacked("isFactory", _factory)), _isFactory);
   }
 
   /**
@@ -86,7 +86,7 @@ contract Registry is DSAuth {
   onlyFactory
   notEmergency
   {
-    db.setBooleanValue(sha3("isRegistryEntry", _registryEntry), true);
+    db.setBooleanValue(sha3(abi.encodePacked("isRegistryEntry", _registryEntry)), true);
   }
 
   /**
@@ -130,7 +130,7 @@ contract Registry is DSAuth {
    * @return True if address is factory
    */
   function isFactory(address factory) public constant returns (bool) {
-    return db.getBooleanValue(sha3("isFactory", factory));
+    return db.getBooleanValue(sha3(abi.encodePacked("isFactory", factory)));
   }
 
   /**
@@ -139,7 +139,7 @@ contract Registry is DSAuth {
    * @return True if address is registry entry
    */
   function isRegistryEntry(address registryEntry) public constant returns (bool) {
-    return db.getBooleanValue(sha3("isRegistryEntry", registryEntry));
+    return db.getBooleanValue(sha3(abi.encodePacked("isRegistryEntry", registryEntry)));
   }
 
   /**

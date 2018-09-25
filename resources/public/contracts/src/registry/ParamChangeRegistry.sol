@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-import "registry/Registry.sol";
+import "./Registry.sol";
 import "./ParamChange.sol";
 import "auth/DSGuard.sol";
 
@@ -20,7 +20,7 @@ contract ParamChangeRegistry is Registry {
    * @param _paramChange Address of ParamChange contract
    */
 
-  function applyParamChange(ParamChange _paramChange) {
+  function applyParamChange(ParamChange _paramChange) public {
     require(isRegistryEntry(_paramChange), "ParamChangeRegistry: not a registry entry");
     DSGuard guard = DSGuard(_paramChange.db().authority());
     guard.permit(_paramChange, _paramChange.db(), guard.ANY());
@@ -28,4 +28,3 @@ contract ParamChangeRegistry is Registry {
     guard.forbid(_paramChange, _paramChange.db(), guard.ANY());
   }
 }
-

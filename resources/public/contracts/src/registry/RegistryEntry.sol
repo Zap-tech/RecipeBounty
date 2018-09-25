@@ -158,7 +158,7 @@ contract RegistryEntry is ApproveAndCallFallBack {
     challenge.vote[_voter].secretHash = _secretHash;
     challenge.vote[_voter].amount += _amount;
 
-    var eventData = new uint[](1);
+    uint[] memory eventData = new uint[](1);
     eventData[0] = uint(_voter);
     registry.fireRegistryEntryEvent("voteCommitted", version, eventData);
   }
@@ -181,7 +181,7 @@ contract RegistryEntry is ApproveAndCallFallBack {
   notEmergency
   {
     require(isVoteRevealPeriodActive(), "RegistryEntry: Reveal period is not active");
-    require(sha3(uint(_voteOption), _salt) == challenge.vote[_voter].secretHash, "RegistryEntry: Invalid sha");
+    require(sha3(abi.encodePacked(uint(_voteOption), _salt)) == challenge.vote[_voter].secretHash, "RegistryEntry: Invalid sha");
     require(!isVoteRevealed(_voter), "RegistryEntry: Vote was already revealed");
 
     challenge.vote[_voter].revealedOn = now;
@@ -197,7 +197,7 @@ contract RegistryEntry is ApproveAndCallFallBack {
       revert();
     }
 
-    var eventData = new uint[](1);
+    uint[] memory eventData = new uint[](1);
     eventData[0] = uint(_voter);
     registry.fireRegistryEntryEvent("voteRevealed", version, eventData);
   }
@@ -247,7 +247,7 @@ contract RegistryEntry is ApproveAndCallFallBack {
 
     challenge.vote[_voter].reclaimedVoteAmountOn = now;
 
-    var eventData = new uint[](1);
+    uint[] memory eventData = new uint[](1);
     eventData[0] = uint(msg.sender);
 
     registry.fireRegistryEntryEvent("voteAmountReclaimed", version, eventData);
@@ -279,7 +279,7 @@ contract RegistryEntry is ApproveAndCallFallBack {
     require(registryToken.transfer(_voter, reward), "RegistryEntry: Can't transfer reward");
     challenge.vote[_voter].claimedRewardOn = now;
 
-    var eventData = new uint[](2);
+    uint[] memory eventData = new uint[](2);
     eventData[0] = uint(_voter);
     eventData[1] = uint(reward);
     registry.fireRegistryEntryEvent("voteRewardClaimed", version, eventData);
@@ -331,7 +331,7 @@ contract RegistryEntry is ApproveAndCallFallBack {
     bytes _data)
   public
   {
-    require(this.call(_data), "RegistryEntry: couldn't call data");
+    require(address(this).call(_data), "RegistryEntry: couldn't call data");
   }
 
   /**
@@ -551,7 +551,7 @@ contract RegistryEntry is ApproveAndCallFallBack {
     external
     constant
     returns (bytes32, VoteOption, uint, uint, uint, uint) {
-    Vote vtr = challenge.vote[_voter];
+    Vote memory vtr = challenge.vote[_voter];
     return (
     vtr.secretHash,
     vtr.option,
@@ -562,7 +562,7 @@ contract RegistryEntry is ApproveAndCallFallBack {
     );
   }
 
-  function bytesToUint(bytes b) public returns (uint256) {
+  function bytesToUint(bytes b) public pure returns (uint256) {
     uint256 number;
     for(uint i = 0; i < b.length; i++){
       number = number + uint(b[i]) * (2 ** (8 * (b.length - (i + 1))));
