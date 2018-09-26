@@ -14,10 +14,11 @@ CLJS Client Repl Commands:
   (stop)           ;; Stop Mount Components.
   (restart)        ;; Restart Mount Components [useful].
 
-  (open-tests)     ;; Opens a separate window containing browser tests.
+  (open-tests)     ;; Opens a tab containing browser tests [useful].
 
   (help)           ;; Display this help message.
 ")
+
 
 (defn start
   "Reloaded workflow, start state components."
@@ -39,7 +40,7 @@ CLJS Client Repl Commands:
 
 
 (defn open-tests
-  "Opens the browser test runner."
+  "Opens the browser test runner in a separate tab."
   []
   (let [host (aget js/window "location" "host")]
     (.open js/window (str "http://" host "/test-runner.html") "_blank")))
