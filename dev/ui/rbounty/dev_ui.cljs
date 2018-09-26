@@ -1,4 +1,5 @@
 (ns ^:figwheel-hooks rbounty.dev-ui
+  "Browser UI Main Function Entry."
   (:require
    [rbounty.ui.core :refer [init main-config]]
    [district.ui.reagent-render :refer [rerender]]))
