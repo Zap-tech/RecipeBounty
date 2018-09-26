@@ -105,3 +105,36 @@ A example ethereum dApp project employing district0x technologies.
 
    Alternatively, you can run the server tests from the CLJS-Server
    Repl development environment with ~(run-tests)~
+
+* Distributing
+  
+  To make a production build:
+
+  #+BEGIN_SRC sh
+
+  $ make build
+
+  #+END_SRC
+
+  Building does several things:
+  - Makes a production build of the browser UI code, and places it in
+    ./dist/resources/cljs-out/
+  - Makes a production build of the node server code, and places it at
+    ./dist/rbounty_server.js
+  - Copies the ./resources to ./dist/resources
+  - fixes the index.html file to reference the appropriate browser code.
+
+  The Production Build can be run as:
+
+  #+BEGIN_SRC sh
+
+  $ cd ./dist
+  $ node rbounty_server.js
+
+  #+END_SRC
+
+* Future Changes
+  - use `docker compose` to simplify development even more
+  - will be including additional technologies as seen fit for the
+    dummy project.
+  - re-use this dummy project to generate district templates.
