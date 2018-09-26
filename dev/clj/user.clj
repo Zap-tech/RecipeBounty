@@ -50,5 +50,4 @@ Notes:
   
 
 (defn start! []
-  (watch!)
-  (cljs-ui))
+  (watch!))

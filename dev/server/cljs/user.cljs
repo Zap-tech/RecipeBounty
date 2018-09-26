@@ -13,7 +13,7 @@
 
 
 (def help-msg "
-CLJS Server Repl Commands:
+CLJS-Server Repl Commands:
 
   (start)          ;; Start Mount Components.
   (stop)           ;; Stop Mount Components.

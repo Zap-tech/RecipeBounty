@@ -39,7 +39,7 @@ help:
 	@echo "  help            :: Display this help message"
 
 
-init: clean deps webpack
+init: clean deps webpack build-contracts
 
 
 dev:

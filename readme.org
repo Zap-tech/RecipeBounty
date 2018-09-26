@@ -9,28 +9,89 @@
 
 A example ethereum dApp project employing district0x technologies.
 
-* Prerequisites
-  - make
-  - node
-  - clj
-
 * Development
 
-  #+BEGIN_SRC sh
+** Getting Started
+*** Prerequisites
+    Requires a Linux or MacOSX Environment. This might change in the future.
 
-  make dev
+    - make (Distro Build Essentials)
+    - [[https://nodejs.org/en/][node]]
+    - [[https://yarnpkg.com/lang/en/docs/install/#debian-stable][yarn]]
+    - [[https://clojure.org/guides/getting_started][clj]]
+    - [[https://solidity.readthedocs.io/en/v0.4.24/installing-solidity.html][solc]]
+    - [[https://www.docker.com/products/docker-desktop][docker (optional)]]
+    - [[https://github.com/trufflesuite/ganache-cli][ganache-cli]]
 
-  #+END_SRC
+*** First-time Setup
+    
+    #+BEGIN_SRC sh
 
-  While in the clojure repl:
+    make init
+
+    #+END_SRC
+
+** Starting the Environment for Server Development
+
+   Server-side requires ganache-cli, so in a terminal run:
+
+   #+BEGIN_SRC sh
+
+   $ ganache-cli
+
+   #+END_SRC
+
+   Then from another terminal:
+
+   #+BEGIN_SRC sh
+
+   $ make dev
+
+   #+END_SRC
+
+   This should bring up a clojure repl. While in the clojure repl:
+
+   #+BEGIN_SRC clojure
+
+   (start!) ;; Starts builds for both the server and ui.
+
+   #+END_SRC
+
+   At this point, you will want to deploy the smart contracts
+   for the ganache-cli testnet:
+
+   #+BEGIN_SRC clojure
+   (cljs-server) ;; Connect to CLJS-Server Repl
+
+   ;; Wait for the CLJS-Server Repl to instantiate...
+
+   (deploy!) ;; Currently buggy
+   #+END_SRC
+
+* Starting the Environment for UI Development
+
+  Client-side requires the same facilities as the server-side until
+  release. After you follow the steps suggested:
+
+  Exit the CLJS-Server Repl
 
   #+BEGIN_SRC clojure
 
-  (start!)
+  :cljs/quit ;; Brings you back to the Clojure Repl
 
   #+END_SRC
 
-  Open the browser to http://localhost:9500
+  Connect to the CLJS-UI Repl
+
+  #+BEGIN_SRC clojure
+
+  (cljs-ui) ;; Connect to the CLJS-UI Repl
+
+  ;; Open a local browser at http://localhost:9500 to connect
+
+  (open-tests) ;; Open a separate browser tab for the test runner
+
+  #+END_SRC
 
 * Testing
 

@@ -8,7 +8,7 @@
 
 
 (def help-msg "
-CLJS Client Repl Commands:
+CLJS-UI Repl Commands:
 
   (start)          ;; Start Mount Components.
   (stop)           ;; Stop Mount Components.
