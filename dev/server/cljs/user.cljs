@@ -2,6 +2,7 @@
   "Clojurescript Entrypoint for Node Server Repl."
   (:require-macros [rbounty.server.utils :refer [on-next-tick]])
   (:require
+   [cljs.nodejs :as nodejs]
    [mount.core :as mount]
 
    ;; Mount State Components
@@ -11,6 +12,9 @@
    [rbounty.dev-server]
    [rbounty.server.test-runner]
    [rbounty.server.deployer :as deployer]))
+
+
+;;(nodejs/enable-util-print!)
 
 
 (def help-msg "
@@ -78,3 +82,7 @@ Notes:
 
 
 (defonce init-msg (help))
+
+
+(defn config []
+  rbounty.dev-server/dev-config)

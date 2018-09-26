@@ -2,7 +2,8 @@
 
 ^{:watch-dirs ["dev/server" "dev/shared"
                "test/server" "test/shared"
-               "src/server" "src/shared"]}
+               "src/server" "src/shared"]
+  :ring-server-options {:port 9501}}
 {:main cljs.user
  :closure-defines {rbounty.server.core/DEV true}
  :target :nodejs}

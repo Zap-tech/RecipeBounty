@@ -6,12 +6,15 @@
 
   - Contract Deployments will update
   rbounty.shared.smart-contracts/smart-contracts. Be cautious with
-  commits.")
+  commits."
+  (:require
+   [taoensso.timbre :as log]))
+   
 
 
 (defn deploy! []
-  (println "Performing Deployment!")
+  (log/warn "Performing Deployment!")
 
   ;; ...
 
-  (println "Finished Deployment!"))
+  (log/warn "Finished Deployment!"))

@@ -11,7 +11,10 @@
 ;;   - entry-point is in src/js/index_ui.js for exposing modules to
 ;;     js/Window object. This is bundled and used by figwheel (through :foreign-libs).
 
-{:deps {bidi {:mvn/version "2.1.4"}
+{:deps {;;
+        ;; General Dependencies
+        ;;
+        bidi {:mvn/version "2.1.4"}
         com.bhauman/figwheel-main {:mvn/version "0.1.9-SNAPSHOT"}
         com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
         com.taoensso/timbre {:mvn/version "4.10.0"}
@@ -22,17 +25,22 @@
         org.clojure/clojure {:mvn/version "1.9.0"}
         org.clojure/clojurescript {:mvn/version "1.10.339"}
 
+        ;;
         ;; district0x General
+        ;;
 
         ;; district0x UI Components
+        district0x/district-ui-logging {:mvn/version "1.0.1"}
         district0x/district-ui-smart-contracts {:mvn/version "1.0.5"}
         district0x/district-ui-reagent-render {:mvn/version "1.0.1"
                                                :exclusions [cljsjs/react-with-addons]}
 
         ;; district0x Server Components
+        district0x/district-server-config {:mvn/version "1.0.1"}
+        district0x/district-server-logging {:mvn/version "1.0.2"}
         district0x/district-server-web3 {:mvn/version "1.0.1"}
         district0x/district-server-smart-contracts {:mvn/version "1.0.9"}} ; Depends on district-server-web3
-       
+ 
 
  :aliases {;; Extra Deps for UI
            :deps-ui {:extra-deps
@@ -40,6 +48,7 @@
                                 :exclusions [cljsjs/react]}
                       reagent {:mvn/version "0.8.1"
                                :exclusions [cljsjs/react]}}}
+                      ;;cljsjs/react {:mvn/version "16.5.2-0"}}}
 
            ;; Main Development Environment
            :dev {:main-opts ["-m" "rebel-readline.main"]
