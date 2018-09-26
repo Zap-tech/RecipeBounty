@@ -97,8 +97,11 @@ A example ethereum dApp project employing district0x technologies.
 
 ** UI
    Browser UI tests run along-side the main development server, and
-   can be accessed at http://localhost:9500/test-runner.html when the
+   can be accessed at [[http://localhost:9500/test-runner.html]] when the
    dev-ui build is active.
 
 ** Server
    Run Server Tests with ~make test~
+
+   Alternatively, you can run the server tests from the CLJS-Server
+   Repl development environment with ~(run-tests)~
