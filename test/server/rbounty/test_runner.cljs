@@ -13,5 +13,9 @@
 (def test-timeout (* 15 60 1000)) ;; 15 minutes
 
 
-(defn -main [& args]
+(defn run []
   (run-tests-async test-timeout))
+
+
+(defn -main [& args]
+  (run))

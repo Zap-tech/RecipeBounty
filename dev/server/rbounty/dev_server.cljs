@@ -5,8 +5,9 @@
   
 
 (def dev-config
-  (merge main-config
-         {}))
+  (-> main-config
+      (assoc-in [:web3 :url] "localhost")
+      (assoc-in [:smart-contracts :auto-mining?] true)))
 
 
 (defn -main [& args]

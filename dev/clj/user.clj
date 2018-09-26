@@ -15,7 +15,7 @@ CLJ Repl Commands:
   (cljs-ui)       ;; Connect to UI Browser CLJS Repl.
   (cljs-server)   ;; Connect to Server CLJS Repl.
 
-  (help)          ;; Print this help message.
+  (help)          ;; Display this help message.
 
 Notes:
 
