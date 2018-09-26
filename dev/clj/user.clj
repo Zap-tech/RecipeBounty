@@ -1,4 +1,5 @@
 (ns user
+  "Entry Point for Clojure Repl."
   (:require
    [figwheel.main.api :as fig]))
 
@@ -6,9 +7,8 @@
 (def help-msg "
 CLJ Repl Commands:
 
-  (start!)        ;; Build and Watch Server+UI, Connect to UI. [Recommended]
+  (start!)        ;; Build and Watch Server and UI.
 
-  (watch!)        ;; Build and Watch Server and UI.
   (watch-server!) ;; Build and Watch Server only.
   (watch-ui!)     ;; Build and Watch UI only.
 
@@ -37,7 +37,7 @@ Notes:
   (fig/start {:mode :serve} "dev-server"))
 
 
-(defn watch! []
+(defn start! []
   (fig/start {:mode :serve} "dev-server" "dev-ui"))
 
 
@@ -47,7 +47,3 @@ Notes:
 
 (defn cljs-server []
   (fig/cljs-repl "dev-server"))
-  
-
-(defn start! []
-  (watch!))

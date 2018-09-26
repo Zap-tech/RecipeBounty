@@ -1,4 +1,4 @@
-(ns rbounty.core-test
+(ns rbounty.server.core-test
   (:require [cljs.test :refer [deftest is are testing]]))
 
 

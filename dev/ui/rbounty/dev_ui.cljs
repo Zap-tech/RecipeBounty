@@ -5,18 +5,15 @@
    [district.ui.reagent-render :refer [rerender]]))
 
 
-(enable-console-print!)
-
-
 (def dev-config
   (merge main-config
          {}))
 
 
-(println "Initializing Development Environment!")
 (defonce start-up
   (do
     "Force it to only reload once"
+    (println "Initializing CLJS-UI Development Environment! Type (help) for repl commands.")
     (init dev-config)))
 
 

@@ -4,7 +4,9 @@
    [mount.core :as mount]
 
    ;; Mount State Components
-   [district.ui.reagent-render]))
+   [district.ui.reagent-render]
+
+   [rbounty.dev-ui :as dev-ui]))
 
 
 (def help-msg "

@@ -1,4 +1,4 @@
-(ns rbounty.test-runner
+(ns rbounty.server.test-runner
   "Test runner for the server. This can be run with `make test`."
   (:require 
     [cljs-test-display.core]
@@ -7,7 +7,7 @@
     ;;
     ;; Test Namespaces
     ;;
-    [rbounty.core-test]))
+    [rbounty.server.core-test]))
 
 
 (def test-timeout (* 15 60 1000)) ;; 15 minutes

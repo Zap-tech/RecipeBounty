@@ -13,6 +13,6 @@
                "src/ui" "src/shared"]
   :npm {:bundles {"target/webpack/bundles/ui_bundle.js"
                   "./src/js/index_ui.js"}}
-  :extra-main-files {:testing {:main rbounty.test-runner}}}
-{:main rbounty.dev-ui
+  :extra-main-files {:testing {:main rbounty.ui.test-runner}}}
+{:main cljs.user
  :closure-defines {rbounty.ui.core/DEV true}}

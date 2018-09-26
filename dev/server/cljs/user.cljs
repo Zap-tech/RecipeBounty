@@ -8,7 +8,8 @@
    [district.server.web3]
    [district.server.smart-contracts]
 
-   [rbounty.test-runner]
+   [rbounty.dev-server]
+   [rbounty.server.test-runner]
    [rbounty.server.deployer :as deployer]))
 
 
@@ -54,7 +55,7 @@ Notes:
 (defn run-tests
   "Run server tests in the development server."
   []
-  (rbounty.test-runner/run))
+  (rbounty.server.test-runner/run))
 
 
 (defn deploy!

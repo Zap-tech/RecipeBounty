@@ -3,6 +3,6 @@
 ^{:watch-dirs ["dev/server" "dev/shared"
                "test/server" "test/shared"
                "src/server" "src/shared"]}
-{:main rbounty.dev-server
+{:main cljs.user
  :closure-defines {rbounty.server.core/DEV true}
  :target :nodejs}

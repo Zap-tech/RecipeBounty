@@ -15,7 +15,10 @@
 
 
 ;; Just call our main function
-(defonce start-up (-main))
+(defonce start-up
+  (do 
+    (println "Initializing CLJS-Server Development Environment! Type (help) for repl commands.")
+    (-main)))
 
 
 (defn ^:after-load re-init
@@ -23,5 +26,3 @@
   []
   (println "Running reload hook...")
   (-main))
-
-

@@ -69,7 +69,9 @@
 
            ;; Test Runner script for Server Build
            :test-server {:main-opts ["-m" "figwheel.main" "-co" "dev-server.cljs.edn"
-                                     "-m" "rbounty.test-runner"]
-                         :extra-paths ["dev/server" "test/server" "test/shared" "dev/resources"]}}
+                                     "-m" "rbounty.server.test-runner"]
+                         :extra-paths ["dev/server" "dev/shared"
+                                       "test/server" "test/shared"
+                                       "dev/resources"]}}
 
  :paths ["src/ui" "src/server" "src/shared" "target" "resources"]}
