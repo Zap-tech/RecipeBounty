@@ -15,15 +15,24 @@
         com.bhauman/figwheel-main {:mvn/version "0.1.9-SNAPSHOT"}
         com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
         com.taoensso/timbre {:mvn/version "4.10.0"}
+        cljs-web3 {:mvn/version "0.19.0-0-11"}
         funcool/cuerdas {:mvn/version "2.0.5"}
         markdown-clj {:mvn/version "1.0.2"}
         mount {:mvn/version "0.1.13"}
         org.clojure/clojure {:mvn/version "1.9.0"}
         org.clojure/clojurescript {:mvn/version "1.10.339"}
 
-        ;; district0x components
+        ;; district0x General
+
+        ;; district0x UI Components
+        district0x/district-ui-smart-contracts {:mvn/version "1.0.5"}
         district0x/district-ui-reagent-render {:mvn/version "1.0.1"
-                                               :exclusions [cljsjs/react-with-addons]}}
+                                               :exclusions [cljsjs/react-with-addons]}
+
+        ;; district0x Server Components
+        district0x/district-server-web3 {:mvn/version "1.0.1"}
+        district0x/district-server-smart-contracts {:mvn/version "1.0.9"}} ; Depends on district-server-web3
+       
 
  :aliases {;; Extra Deps for UI
            :deps-ui {:extra-deps
@@ -41,12 +50,16 @@
 
            ;; Build and Watch only the UI
            :fig-dev-ui {:main-opts ["-m" "figwheel.main" "-b" "dev-ui" "-r"]
-                        :extra-paths ["dev/ui" "test/ui" "dev/shared" "dev/resources"]}
+                        :extra-paths ["dev/ui" "dev/shared"
+                                      "test/ui" "test/shared"
+                                      "dev/resources"]}
 
            
            ;; Build and Watch only the Server
            :fig-dev-server {:main-opts ["-m" "figwheel.main" "-b" "dev-server" "-r"]
-                            :extra-paths ["dev/server" "dev/shared" "dev/resources"]}
+                            :extra-paths ["dev/server" "dev/shared"
+                                          "test/server" "test/shared"
+                                          "dev/resources"]}
 
            ;; Production Build of the UI
            :build-prod-ui {:main-opts ["-m" "figwheel.main" "-bo" "prod-ui"]}

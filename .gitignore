@@ -17,6 +17,7 @@ pom.xml.asc
 
 # Node Environment
 /node_modules
+yarn-error.log
 
 # Solidity Contract Extensions
 *.bin
