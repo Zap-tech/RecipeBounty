@@ -65,7 +65,7 @@ A example ethereum dApp project employing district0x technologies.
 
    ;; Wait for the CLJS-Server Repl to instantiate...
 
-   (deploy!) ;; Currently buggy
+   (deploy!)
    #+END_SRC
 
 * Starting the Environment for UI Development
