@@ -2,6 +2,7 @@
   "Clojurescript Entrypoint for Node Server Repl."
   (:require-macros [rbounty.server.utils :refer [on-next-tick]])
   (:require
+   [clojure.pprint :refer [pprint]]
    [cljs.nodejs :as nodejs]
    [mount.core :as mount]
 
@@ -84,5 +85,8 @@ Notes:
 (defonce init-msg (help))
 
 
-(defn config []
-  rbounty.dev-server/dev-config)
+(def config rbounty.dev-server/dev-config)
+
+
+(defn print-config []
+  (pprint rbounty.dev-server/dev-config))
