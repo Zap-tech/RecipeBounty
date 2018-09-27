@@ -7,6 +7,7 @@
    ;; District Components
    [district.server.web3]
    [district.server.smart-contracts :as contracts]
+   [district.server.logging]
 
    [rbounty.shared.smart-contracts]))
 

@@ -3,11 +3,13 @@
    [re-frame.core :as re-frame]
    [reagent.core :as reagent]
    [mount.core :as mount]
+   [taoensso.timbre :as log]
 
    ;; Reagent Component
    [rbounty.ui.components.app-layout :refer [c-app-layout]]
 
    ;; Mount States
+   [district.ui.logging]
    [district.ui.reagent-render]))
 
 
@@ -21,7 +23,7 @@
 
 
 (defn ^:export init [config]
-  (println "Initializing UI...")
+  (log/info "Initializing UI...")
   (mount/start (mount/with-args config)))
 
 

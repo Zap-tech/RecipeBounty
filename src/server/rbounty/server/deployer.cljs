@@ -13,8 +13,8 @@
 
 
 (defn deploy! []
-  (log/warn "Performing Deployment!")
+  (log/info "Performing Deployment!")
 
   ;; ...
 
-  (log/warn "Finished Deployment!"))
+  (log/info "Finished Deployment!"))

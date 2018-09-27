@@ -11,6 +11,7 @@
 .PHONY: dev dev-ui dev-server
 .PHONY: build-server build-ui build-dist build
 .PHONY: build-contracts
+.PHONY: watch-node-log
 .PHONY: webpack
 .PHONY: test deps clean help
 
@@ -28,6 +29,8 @@ help:
 	@echo "  build-server    :: Make Production Build for Server only"
 	@echo "  build-contracts :: Compile Solidity Contracts"
 	@echo "  build-dist      :: Prepare ./dist folder for Production Build"
+	@echo ""
+	@echo "  watch-node-log  :: Watches development node server log"
 	@echo ""
 	@echo "  webpack         :: Build Webpack Bundle for UI"
 	@echo ""
@@ -74,6 +77,10 @@ build-dist:
 
 
 build: clean deps webpack build-contracts build-server build-ui build-dist
+
+
+watch-node-log:
+	tail -f ./target/node/dev-server/node.log
 
 
 webpack:
